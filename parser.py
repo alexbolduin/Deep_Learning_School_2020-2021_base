@@ -12,13 +12,13 @@ def get_html(url, params=None):
 
 def get_content(html):
     soup = BeautifulSoup(html, 'html.parser')
-    items = soup.find_all('a', class_ = 'Link ListingItemTitle-module__link')
+    items = soup.find_all('div', class_ = 'ListingItem-module__main')
 
     cars = []
     for item in items:
        cars.append({
-            'title': item.get_text(strip=True).replace('Ð\xa0ÐµÑ\x81Ñ\x82Ð°Ð¹Ð»Ð¸Ð½Ð³', 'Restailing'),
-            'link': item.get('href')
+            'title': item.find('a', class_='Link ListingItemTitle-module__link').get_text(strip=True).replace('Ð\xa0ÐµÑ\x81Ñ\x82Ð°Ð¹Ð»Ð¸Ð½Ð³', 'Restailing'),
+            'link': item.find('a', class_='Link ListingItemTitle-module__link').get('href')
 
        })
 

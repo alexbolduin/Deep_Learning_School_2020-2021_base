@@ -22,7 +22,8 @@ def get_content(html):
     for item in items:
        cars.append({
             'title': item.find('a', class_='Link ListingItemTitle-module__link').get_text(strip=True).replace(rus, eng),
-            'link': item.find('a', class_='Link ListingItemTitle-module__link').get('href')
+            'link': item.find('a', class_='Link ListingItemTitle-module__link').get('href'),
+            'price': item.find('div', class_='ListingItemPrice-module__content').get_text(strip=True)
 
        })
 

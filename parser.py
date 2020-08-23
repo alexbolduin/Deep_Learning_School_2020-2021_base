@@ -7,7 +7,7 @@ import pandas as pd
 
 LINK_TO_DRIVER = Path('C:\chromedriver\chromedriver.exe')
 driver = webdriver.Chrome(LINK_TO_DRIVER)
-main_link = 'https://www.flashscore.com/football/england/premier-league-1989-1990/results/'
+main_link = 'any_link'
 
 driver.get(main_link)
 YEARS = driver.find_element_by_css_selector('div.teamHeader__text')
